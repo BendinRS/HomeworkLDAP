@@ -27,8 +27,8 @@
     - name: Configure freeipa
       command: |
         ipa-server-install -U \
-        -r otus.com \
-        -n otus.com \
+        -r bendin.otus.com \
+        -n bendin.otus.com \
         -p adminadmin \
         -a adminadmin \
         --hostname=ipaserver.otus.local \
