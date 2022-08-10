@@ -20,6 +20,7 @@
         state: present
       loop:
         - ipa-server
+        - ipa-server-dns
       tags:
         - soft
   
