@@ -29,8 +29,8 @@
         ipa-server-install -U \
         -r otus.com \
         -n otus.com \
-        -p admin1 \
-        -a admin1 \
+        -p adminadmin \
+        -a adminadmin \
         --hostname=ipaserver.otus.local \
         --ip-address=10.0.2.15 \
         --mkhomedir \
