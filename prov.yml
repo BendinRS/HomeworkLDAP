@@ -1,0 +1,24 @@
+---
+- name: Deploy web app
+  hosts: all # имя хоста, который мы создадим Vagrant`om
+  become: yes # Установка Docker через sudo
+  gather_facts: false
+  tasks: # Перечисляем задачи которые выполнит наш playbook
+    - name: Update and upgrade apt packages
+      become: true
+      apt:
+        #upgrade: yes
+        update_cache: yes
+
+    - name: Install docker packages # устанавливаем пакеты необходимые для установки докера
+      become: yes
+      apt:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - apt-transport-https
+        - ca-certificates
+        - curl
+        - software-properties-common
+      tags:
+        - docker

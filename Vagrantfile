@@ -1,6 +1,6 @@
 Vagrant.configure(2) do |config|
     config.vm.define "ldap" do |vmconfig|
-      vmconfig.vm.box = 'ubuntu-20'
+      vmconfig.vm.box = 'centos/7'
       vmconfig.vm.hostname = 'ldap'
       vmconfig.vm.provider "virtualbox" do |vbx|
         vbx.memory = "2048"
