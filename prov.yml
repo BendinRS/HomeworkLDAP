@@ -4,21 +4,35 @@
   become: yes # Установка Docker через sudo
   gather_facts: false
   tasks: # Перечисляем задачи которые выполнит наш playbook
-    - name: Update and upgrade apt packages
-      become: true
-      apt:
-        #upgrade: yes
-        update_cache: yes
 
-    - name: Install docker packages # устанавливаем пакеты необходимые для установки докера
+    - name: Install epel-release # устанавливаем пакеты необходимые для установки докера
       become: yes
-      apt:
+      yum:
+        name: epel-release
+        state: present
+      tags:
+        - soft
+
+    - name: Install ipaservers
+      become: yes
+      yum:
         name: "{{ item }}"
         state: present
-      with_items:
-        - apt-transport-https
-        - ca-certificates
-        - curl
-        - software-properties-common
+      loop:
+        - ipa-server
+        - ipa-server-dns
       tags:
-        - docker
+        - soft
+  
+    - name: Configure freeipa
+      command: |
+        ipa-server-install -U \
+        -r otus.com \
+        -n otus.com \
+        -p admin1 \
+        -a admin1 \
+        --hostname=ipaserver.otus.local \
+        --ip-address=10.0.2.15 \
+        --mkhomedir \
+        --setup-dns \
+
