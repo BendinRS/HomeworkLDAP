@@ -8,7 +8,7 @@ Vagrant.configure(2) do |config|
         vbx.customize ["modifyvm", :id, '--audio', 'none']
         end
         vmconfig.vm.provision "shell", run: "always", inline: <<-SHELL
-        sudo apt-get update
+        echo "Go ansible"
         SHELL
 
       end
