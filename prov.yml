@@ -20,22 +20,21 @@
         state: present
       loop:
         - ipa-server
-        - ipa-server-dns
       tags:
         - soft
   
     - name: Configure freeipa
       command: |
         ipa-server-install -U \
-        -r bendin.otus.com \
-        -n bendin.otus.com \
+        -r BENDIN.LOCAL \
+        -n bendin.local \
         -p adminadmin \
         -a adminadmin \
-        --hostname=ipaserver.otus.local \
+        --hostname=ipaserver.bendin.local \
         --ip-address=10.0.2.15 \
         --mkhomedir \
         --setup-dns \
         --auto-forwarders \
         --auto-reverse
-        
+
 
