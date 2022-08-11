@@ -3,7 +3,7 @@ Vagrant.configure(2) do |config|
       vmconfig.vm.box = 'centos/7'
       vmconfig.vm.hostname = 'ipaserver'
       vmconfig.vm.provider "virtualbox" do |vbx|
-        vbx.memory = "2048"
+        vbx.memory = "4000"
         vbx.cpus = "2"
         vbx.customize ["modifyvm", :id, '--audio', 'none']
         end
