@@ -1,7 +1,7 @@
 Vagrant.configure(2) do |config|
-    config.vm.define "ipaserver" do |vmconfig|
+    config.vm.define "ipaserver.bendin.local" do |vmconfig|
       vmconfig.vm.box = 'centos/7'
-      vmconfig.vm.hostname = 'ipaserver'
+      vmconfig.vm.hostname = 'ipaserver.bendin.local'
       vmconfig.vm.provider "virtualbox" do |vbx|
         vbx.memory = "4000"
         vbx.cpus = "2"

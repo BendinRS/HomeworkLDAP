@@ -29,8 +29,8 @@
         ipa-server-install -U \
         -r BENDIN.LOCAL \
         -n bendin.local \
-        -p adminadmin \
-        -a adminadmin \
+        -p 12345678 \
+        -a 12345678 \
         --hostname=ipaserver.bendin.local \
         --ip-address=10.0.2.15 \
         --mkhomedir \
