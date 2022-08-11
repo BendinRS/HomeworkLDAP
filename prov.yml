@@ -5,13 +5,13 @@
   gather_facts: false
   tasks: # Перечисляем задачи которые выполнит наш playbook
 
-    - name: Install epel-release # устанавливаем пакеты необходимые для установки докера
-      become: yes
-      yum:
-        name: epel-release
-        state: present
-      tags:
-        - soft
+    # - name: Install epel-release # устанавливаем пакеты необходимые для установки докера
+    #   become: yes
+    #   yum:
+    #     name: epel-release
+    #     state: present
+    #   tags:
+    #     - soft
 
     - name: Install ipaservers
       become: yes
