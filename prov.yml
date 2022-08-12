@@ -1,17 +1,17 @@
 ---
-- name: Deploy web app
-  hosts: all # имя хоста, который мы создадим Vagrant`om
-  become: yes # Установка Docker через sudo
+- name: Deploy ldap app
+  hosts: all s
+  become: yes 
   gather_facts: false
   tasks: # Перечисляем задачи которые выполнит наш playbook
 
-    # - name: Install epel-release # устанавливаем пакеты необходимые для установки докера
-    #   become: yes
-    #   yum:
-    #     name: epel-release
-    #     state: present
-    #   tags:
-    #     - soft
+    - name: Install nss # устанавливаем пакеты необходимые для установки докера
+      become: yes
+      yum:
+        name: nss
+        state: latest
+      tags:
+        - soft
 
     - name: Install ipaservers
       become: yes
@@ -21,7 +21,7 @@
       loop:
         - ipa-server
         - ipa-server-dns
-        - nss
+        # - nss
       tags:
         - soft
   
