@@ -178,7 +178,10 @@ Options:
 + Решение: обновить модуль nss  
 
 
-![У-успех](https://i.ibb.co/4tSChyv/1234.png)
+![У-успех](https://i.ibb.co/6ZXbKDw/123345.png)
+
+
+
 
 
 
