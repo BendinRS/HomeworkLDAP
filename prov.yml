@@ -33,8 +33,8 @@
         -a 12345678 \
         --hostname=ipaserver.bendin.local \
         --ip-address=10.0.2.15 \
-        # --mkhomedir \
-        # --setup-dns \
+        --mkhomedir \
+        --setup-dns \
         --no-forwarders \
         --no-reverse
 
