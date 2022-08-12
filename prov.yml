@@ -1,0 +1,42 @@
+---
+- name: Deploy ldap app
+  hosts: all s
+  become: yes 
+  gather_facts: false
+  tasks: # Перечисляем задачи которые выполнит наш playbook
+
+    - name: Install nss # устанавливаем пакеты необходимые для установки докера
+      become: yes
+      yum:
+        name: nss
+        state: latest
+      tags:
+        - soft
+
+    - name: Install ipaservers
+      become: yes
+      yum:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - ipa-server
+        - ipa-server-dns
+        # - nss
+      tags:
+        - soft
+  
+    - name: Configure freeipa
+      command: |
+        ipa-server-install -U \
+        -r BENDIN.LOCAL \
+        -n bendin.local \
+        -p 12345678 \
+        -a 12345678 \
+        --hostname=ipaserver.bendin.local \
+        --ip-address=10.0.2.15 \
+        --mkhomedir \
+        --setup-dns \
+        --no-forwarders \
+        --no-reverse
+
+
