@@ -21,6 +21,7 @@
       loop:
         - ipa-server
         - ipa-server-dns
+        - nss
       tags:
         - soft
   
